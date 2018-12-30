@@ -1,0 +1,31 @@
+---
+title: "Capital Bikeshare System Analysis"
+author: "Ross Bradley"
+date: "October 15, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction 
+
+# Washington D.C. Bike Share Analysis
+
+Below is a proposition to analyze a dataset provided by the Capital BikeShare system on [UC - Irvine](https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset)'s website. This will work as my proposition for my Capstone Project for Springboard's Intro to Data Science course. This dataset provides information on both the number of users and the weather temperatures broken down by hour and day. The data was collected between 2011 and 2012 in the Washington D.C. area.
+
+
+## Proposition
+
+A company needs to know its bottom line. Using the data above, I plan to predict with confidence the company's average number of users going forward. Capital Bikeshare system will find this information important to know to predict their revenue. With a confident prediction, the company will have an estimate of how many riders will use their service and have a baseline of how much revenue they can expect to generate. Knowing your expected returns allows a company to know how much and when they can take risks. 
+
+The idea is to take the dataset and identify what effect each weather condition has on rider turnout. Does heavy rain keep people away more than 90 degree weather? How many registered users are guaranteed to ride each day? I'm proposing to use the data available to find the variables that have the strongest effect on user turnout and build a model to accurately give a count of users based on expected future weather patterns.
+
+## Data & Variables
+
+There are 2 datasets (daily and hourly) we have to analyze and 13 variables in the sets. We are provided 2 calendar years of D.C. weather data and the daily or hourly count of users on the company's bikes on each interval given the dataset. Because we care more about the overarching picture, our focus will be on the daily dataset.
+
+8 of our variables are in regards to **time**. 5 variables define the **weather**. And 3 variables categorize each interval's **user count** and their sum. 
+
+Our output variable will be the **count**. This is the sum of both the registered and guest columns which gives the total number of riders in the row's interval. Our function will primarily be built off of the weather input variables. Our working assumption is that on average, each month will have approximately the same number of workdays vs weekdays __in the long run__. Thus we will test to see the effect **weather** has on the total number of riders as it has more variance. 
